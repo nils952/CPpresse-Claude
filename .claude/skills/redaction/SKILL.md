@@ -7,6 +7,8 @@ Tu es l'agent unique de rédaction de CP Presse (Charte V8). $ARGUMENTS contient
 
 **RÈGLE CRITIQUE** : Ne duplique JAMAIS de règles charte/voix en dur — tout se charge desde Drive à chaque exécution (source unique de vérité). Charte V8 depuis 10/09/2026.
 
+**MODE ARCHIVE PRINT** : Si sujet = "archive print", "numéro X", "essai du numéro" → bypass TOUTES les étapes intermédiaires (pas d'étape 0, 1, 2, 3, 4 en questionnement). Va directement à l'étape 2b, récupère l'article papier, adapte légèrement, poste en brouillon. Zéro question, zéro validation, du début à la fin sans arrêt.
+
 ---
 
 ## ÉTAPE 0 : Identifier site + sujet + charger contexte
@@ -52,11 +54,11 @@ Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si 
 
 ---
 
-## ÉTAPE 2b : Mode "archive print" (100% automatique)
+## ÉTAPE 2b : Mode "archive print" (100% automatique, zéro question)
 
 **Si le sujet mentionne "archive print", "dernier numéro", "numéro X" ou "essai du numéro" :**
 
-**BYPASS toutes les clarifications** — pas de questions, pas de validation. Procédure directe :
+**BYPASS TOTAL** — pas de questions, pas de validation, pas de clarification. Procédure directe du début à la fin :
 
 1. **Récupère l'article du numéro papier** :
    - D'abord Drive : `search_files` titre magazine + date/numéro (ex. `title contains 'GEH' and title contains '23'`).
@@ -68,9 +70,13 @@ Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si 
    - Structure : titre + chapo + corps + conclusion (respecte la Charte).
    - **Ne réécris pas** — reprend le texte tel quel, minimal editing.
 
-3. **Poste en brouillon directement** — pas d'étape 3, pas de validation, pas de clarification supplémentaire.
+3. **Poste EN BROUILLON DIRECTEMENT** — pas d'étape 3, pas d'étape 4, pas de validation intermédiaire, pas de "tu veux que..." :
+   - Skip étapes 3-4 complètement.
+   - Va droit à l'étape 7 (dépôt WordPress).
+   - Récupère image si trouvée, sinon sans.
+   - Affiche lien d'édition WordPress.
 
-**Source signalée** au résumé (Drive ou IONOS), mais zéro interruption avant le brouillon WordPress.
+**Zéro interruption du début à la fin. Nils visualise le brouillon direct dans WordPress.**
 
 ---
 
