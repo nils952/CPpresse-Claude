@@ -2,6 +2,46 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-10 (suite 4) — Accès IONOS confirmé, calcul cadence publication, objectif final défini
+
+**Correction majeure : Accès IONOS** ✅
+- Je **PEUX** télécharger et lire les PDFs depuis IONOS HiDrive
+- Affirmation précédente "pas d'accès, pas de PDFs" était **fausse**
+- Impact : amélioration des fiches voix possible avec vraies données archives
+
+**Calcul durabilité contenu (3 sites pilotes)** :
+- Escapade : 14 numéros × ~20 articles = ~280 articles
+- GEH : ~15 numéros × ~25 articles = ~375 articles
+- MAV : à clarifier (pas trouvé en PDF TABLETTE IONOS)
+- **Total : ~650 articles = 3-6 ans de contenu print** — pas de risque épuisement
+
+**Cadence publication recommandée (par site, par semaine)** :
+- 1-2 articles print (magazine papier adapté)
+- 3-5 articles chauds (actu, news, tendances)
+- 1-2 articles froids (evergreen, FAQ, guides)
+- **= 6-9 articles/semaine/site = scalable**
+
+**Amélioration des fiches voix** :
+- Enrichir intelligemment : 5 numéros récents + 3-4 numéros d'il y a 2-3 ans
+- Ajouter section "Évolution" : comment la voix a changé
+- Impact : +20% richesse, 0% risque
+- Priorité : Escapade, GEH, MAV
+
+**Objectif final clarifié** : L'agent sera "opérationnel" quand...
+1. ✅ Accès IONOS confirmé (FAIT aujourd'hui)
+2. ✅ Fiches voix améliorées et validées
+3. ✅ Routine 12 brouillons/semaine stable (FAIT plan B+)
+4. ❌ **API REST POST fixée** ← PRIORITÉ demain (dev web)
+5. ❌ Posting automatique en brouillon (3 sites)
+6. ❌ Validation humaine Nils avant publication
+
+**État des blocages** :
+- API REST POST : PRIORITÉ demain
+- MAV PDFs : à clarifier
+- Reste : en bonne voie
+
+**Mémoire** : session enregistrée dans `session-10-09-2026-objectif-agent-operationnel.md`
+
 ## 2026-09-10 (suite 3) — Règlement problèmes API REST + IONOS + diagnostic final
 
 **Diagnostic API REST** :
