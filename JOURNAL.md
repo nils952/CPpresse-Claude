@@ -2,6 +2,84 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-11 — Erreurs session + checklist article complète (SEO, lisibilité, images)
+
+### Erreurs commises à ne plus reproduire
+
+**1. Double brouillon (doublon slug)**
+Un ghost draft existait déjà à `essai-cupra-born-2026` — j'ai posté sans vérifier, WP a créé `essai-cupra-born-2026-2`.
+**Règle** : avant tout POST /wp/v2/posts, faire un GET `?search={slug}&status=any` et vérifier qu'aucun draft n'existe déjà au même slug.
+
+**2. Phrases consécutives identiques (Yoast lisibilité rouge)**
+La conclusion avait 3 phrases de suite commençant par "La Born..." → flag Yoast automatique.
+**Règle** : jamais 3 phrases consécutives débutant par le même mot. Varier les ouvertures dans les paragraphes de synthèse/conclusion notamment.
+
+**3. Images uploadées sans métadonnées**
+Uploades les photos sans alt ni titre — remplis après coup à la main.
+**Règle** : remplir systématiquement alt + titre à chaque upload WP Médias (voir checklist ci-dessous).
+
+**4. Auth 401 non bloquante traitée trop tard**
+Articles Escapade + MAV rédigés et JSONs préparés sans vérifier d'abord que l'auth fonctionnait. Résultat : tout prêt, rien posté.
+**Règle** : tester l'auth (GET /wp-json/wp/v2/users/me) en tout premier avant toute rédaction sur un site. Si 401 → signaler immédiatement, ne pas rédiger.
+
+**5. Tâche interrompue par perte de contexte**
+Téléchargement image Drive en cours quand la session a expiré — tâche jamais terminée.
+**Règle** : terminer les tâches atomiques (download → crop → upload → attach) en une seule passe sans interruption.
+
+---
+
+### Checklist article complet (à appliquer à chaque article)
+
+#### Avant de rédiger
+- [ ] Tester auth WP : `GET /wp-json/wp/v2/users/me` → 200 obligatoire
+- [ ] Vérifier anti-doublon : `GET /wp-json/wp/v2/posts?search={slug}&status=any`
+- [ ] Charger les 4 docs Drive : Charte V8, Voix éditoriale, Table catégories, Journal d'exécution
+
+#### Rédaction (Charte V8)
+- [ ] Paragraphes ≤ 3 phrases, phrases ≤ 25 mots
+- [ ] Pas de "très", "découvrez", "plongez", "en effet", "il est important de"
+- [ ] Jamais 3 phrases consécutives débutant par le même mot
+- [ ] Minimum 2 liens internes dans le corps
+- [ ] Prix et chiffres sourcés
+- [ ] Conclusion : 2 phrases max, pas de CTA
+
+#### SEO Yoast
+- [ ] `focuskw` dans le H1, dans les 100 premiers mots du corps, dans la metadesc, dans au moins un H2, dans l'alt de l'image à la une
+- [ ] Titre SEO : 50-60 caractères
+- [ ] Metadesc : 150-160 caractères
+- [ ] Slug : propre, sans stopwords inutiles
+- [ ] Score SEO Yoast : vert avant de livrer
+
+#### Lisibilité Yoast
+- [ ] Pas de 3 phrases consécutives débutant par le même mot
+- [ ] Phrases passives < 10% du texte
+- [ ] Mots de transition entre paragraphes
+- [ ] Score lisibilité Yoast : orange acceptable, vert idéal
+
+#### Images
+- [ ] Format hero : 1600×900 px minimum (16:9)
+- [ ] **Alt** : keyword principal + description précise de ce que montre l'image (ex. `Cupra Born 2026 vue de face, extérieur urbain`) — jamais de crédit ici
+- [ ] **Titre** : nom lisible du sujet (ex. `Cupra Born 2026 — avant`) — pas le nom de fichier brut
+- [ ] **Légende** : crédit si visible en front-end (`© Constructeur` pour kit presse) — laisser vide si non affiché
+- [ ] **Description** : source interne pour traçabilité (`Kit presse Cupra Born 2026 — Drive CP Presse`) — invisible en front
+- [ ] Pour kit presse constructeur : crédit obligatoire en légende ou description, pas dans l'alt
+
+#### WordPress (POST final)
+- [ ] `status: "draft"` — jamais `publish`
+- [ ] `author` : ID correct depuis site-context
+- [ ] `categories` : IDs exacts depuis table de catégories
+- [ ] `_zeen_hero_design` : 21 (Destination), 42 (Hôtel/MAV défaut), 1 (Pratique)
+- [ ] `featured_media` : ID media uploadé, pas 0
+- [ ] Vérifier après POST que le slug est bien celui voulu (pas de `-2` ajouté)
+
+#### Post-publication
+- [ ] Ajouter ligne dans Journal d'exécution Drive
+- [ ] Ajouter titre dans `Articles/_sujets-traites.md`
+- [ ] Ajouter fiche dans `Articles/AAAA-MM-JJ-{site}-{slug}.md`
+- [ ] Commit git
+
+---
+
 ## 2026-09-11 — Escapade + MAV : Nils gère les credentials + photos lui-même
 
 **État en fin de session** :
