@@ -2,6 +2,48 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-11 — Escapade + MAV : Nils gère les credentials + photos lui-même
+
+**État en fin de session** :
+- GEH Cupra Born (ID 25734) : laissé de côté, Nils s'occupe des photos
+- Escapade San Sebastián : JSON + image prêts (scratchpad/post-san-sebastian.json + san-sebastian-1600x900.jpg) — Nils régénère les credentials
+- MAV Plan de travail : JSON prêt (scratchpad/post-mav-plan-de-travail.json) — Nils régénère les credentials
+
+**Prochaine session** : dès que Nils a les nouveaux mots de passe app Escapade + MAV → relancer poster-brouillon directement avec les JSON prêts.
+
+---
+
+## 2026-09-10 (suite 6) — 3 articles rédigés, 2 bloqués en 401 (Escapade + MAV)
+
+**Articles produits ce soir** :
+1. **GEH — Cupra Born 2026** : ID WP 25734, brouillon ✅ posté. Image manquante — lien presse : https://media.seat.com/cupra/en (ou galerie https://www.cupra.com/fr-fr/voitures/cupra-born.html)
+2. **Escapade — San Sebastián en octobre** : rédigé + image Wikimedia prête (1600×900 jpg) — ⚠️ 401 auth escapade-mag.fr
+3. **MAV — Plan de travail cuisine** : rédigé, 4 matériaux, prix marché 2026 — ⚠️ 401 auth maisonsavivre-mag.fr
+
+**Blocage Escapade + MAV** : credentials `nils+claude@cppresse.fr` rejettent 401. API publique OK. Cause probable : mot de passe d'application invalide ou inexistant. Corriger dans WP Admin → profil → Mots de passe d'application → régénérer.
+
+**Archives MAV IONOS** : MAV62 et MAV63 disponibles sur https://c01.storage.ionos.fr/s/n4wtRz7wkQFA5Ct?path=%2FMAV — pas d'article cuisine/plan de travail dans ces numéros.
+
+**JSON prêts à poster** :
+- Escapade : scratchpad/post-san-sebastian.json (⚠️ corriger author: 6 → 13 avant de poster — DÉJÀ CORRIGÉ dans la fiche)
+- MAV : scratchpad/post-mav-plan-de-travail.json
+
+## 2026-09-10 (suite 5) — Premier brouillon GEH posté : Cupra Born 2026
+
+**Article produit** : Cupra Born 2026 : notre essai de la compacte électrique sportive
+- ID WordPress : 25734 | Statut : brouillon
+- Lien édition : https://electriquemag.fr/wp-admin/post.php?post=25734&action=edit
+- Catégorie : Essais (ID 92) | Tags : Cupra Born (756), Born VZ (757)
+- Auteur : ID 19 (claude-editorial)
+- 4 H2, 3 liens internes, ~800 mots, meta Yoast renseignée
+- Image à ajouter (kit média Cupra à sourcer)
+
+**⚠ Journal d'exécution Drive** : à mettre à jour manuellement (le connecteur Drive ne permet pas de modifier des sheets). Ajouter une ligne : 2026-09-10 | GEH | Cupra Born 2026 | [titre ci-dessus] | 25734 | [lien edit] | numéro 23 GEH | Kit média (rang 1) | Essai magazine n°23 | Brouillon | vide | vide | vide
+
+**API REST** : fonctionne sur GEH ✅ (déblocage confirmé — auth Basic App Password OK)
+
+---
+
 ## 2026-09-10 (suite 4) — Accès IONOS confirmé, calcul cadence publication, objectif final défini
 
 **Correction majeure : Accès IONOS** ✅
