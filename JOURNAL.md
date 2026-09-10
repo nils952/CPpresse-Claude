@@ -2,6 +2,25 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-10 (suite 3) — Règlement problèmes API REST + IONOS + diagnostic final
+
+**Diagnostic API REST** :
+- ✅ L'API REST fonctionne sur les 3 sites (GEH, Escapade, MAV) — GET accessible
+- ❌ POST (créer brouillons) bloqué — problème d'authentification/permissions au niveau serveur
+- **Action requise** : dev web doit configurer l'authentification API REST / Jetpack / permissions
+
+**Fix IONOS HiDrive** :
+- ❌ Pas d'accès automatique à IONOS depuis cet environnement (navigateur/PowerShell ne passent pas)
+- ✅ Solution : Nils fournit numéro + titre de l'article, peut copier-colle le contenu depuis IONOS/Drive/PDF
+- Skill adaptée : demande UNE FOIS le numéro + titre, puis bypass total vers brouillon WordPress
+
+**Situation technique finale** :
+1. **Skill `/redaction` prête** : mode archive print fonctionne (numéro + titre → brouillon direct)
+2. **API REST bloquée pour POST** : nécessite config dev web (pas de workaround simple)
+3. **Plan de continuité** : en attente dev web, ou pivot vers copie-colle manuel / Claude in Chrome
+
+**Commit** : `09c3a80` — Fix IONOS, Nils fournit contenu
+
 ## 2026-09-10 (suite 2) — Fix accès Drive : utilisation connecteur MCP au lieu du browser
 
 **Problème** : la skill `/redaction` demandait constamment d'autoriser Claude à utiliser Chrome réel pour accéder à Drive, générant une demande d'auth à chaque exécution.
