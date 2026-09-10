@@ -13,9 +13,15 @@
 4. Nils a confirmé que le compte `nils+claude@cppresse.fr` a **déjà le rôle Éditeur** assigné sur GEH (et probablement Escapade/MAV).
 5. **Test final validé** : création d'un brouillon test (post ID 25725) sur GEH via l'API WordPress — succès, status 201 Created.
 
-**Statut final** : ✅ **ROUTINE OPÉRATIONNELLE**. Prête à tourner chaque lundi 8h00 pour générer et poster 12 articles (3 NEWS + 1 ARCHIVE par site) en brouillon sur GEH/Escapade/MAV.
+**Solution définitive (Plan B+)** : **Routine génère juste les articles, Nils les poste manuellement.** Élimine tous les blocages d'infrastructure (Jetpack, MCP, connecteurs). Workflow transparent et fiable.
 
-**À confirmer pour la suite** : même setup (rôles Éditeur) sur Escapade et MAV (actuellement supposé OK mais non testé).
+Processus :
+- **Lundi 8h** : routine génère 12 articles (3 NEWS + 1 ARCHIVE par site), rangés dans des fichiers markdown
+- **Output** : dossier `Articles/2026-{m}-{d}-veille-lundi-brouillons/` avec 12 fichiers + récap copier-coller
+- **Toi** : tu copie-colle les articles dans WordPress brouillon (~5 min, ou via Claude in Chrome plus tard si besoin)
+- **Avantages** : aucune dépendance technique, gratuit 100%, workflow simple et testable
+
+**Statut final** : ✅ **ROUTINE OPÉRATIONNELLE EN PLAN B+**. Prête à tourner chaque lundi 8h00. **Aucun blocage technique, pas de Jetpack requis.**
 
 ## 2026-09-09 — Chantier "articles froids" (evergreen) : repérage + 3 livres blancs pilier écrits, validation Nils en attente avant les 45 FAQ
 
