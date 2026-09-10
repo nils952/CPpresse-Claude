@@ -27,7 +27,10 @@ Espace de travail centralisé de **Nils Martin**. Compte Claude partagé avec to
 - `JOURNAL.md` — journal de travail, entrée la plus récente en haut. Toujours lire l'entrée "FIN DE SESSION" la plus récente en premier : elle récapitule l'état du projet et ce qui reste en attente.
 
 ## Projet assistant rédaction (CP Presse)
-- La **Charte rédactionnelle** et les **fiches Voix éditoriale par site** vivent sur Google Drive (dossier `00-Pilotage` et `Voix éditoriales par site`), pas ici. Toujours les chercher par titre (en excluant les versions archivées `[REMPLACÉE`/`[OBSOLÈTE`), jamais par ID figé — elles changent de version régulièrement.
-- Skill `/redaction [site] [sujet]` (`.claude/skills/redaction/SKILL.md`) : charge charte + voix depuis Drive, écrit l'article, poste le brouillon directement sur WordPress.
+- Depuis le 10/09/2026 : **Charte V8** = document unique de référence (remplace la V7 et fusionne les deux anciennes routines). Elle vit sur Google Drive (`00-Pilotage`), pas ici. Toujours la chercher par titre (en excluant `[PÉRIMÉ`/`[REMPLACÉE`/`[OBSOLÈTE`/`[FUSIONNÉ`), jamais par ID figé.
+- 4 documents obligatoires à charger avant toute rédaction (ordre imposé par la charte) : (1) Charte V8, (2) fiche Voix éditoriale du site, (3) table de catégories du site, (4) **Journal d'exécution — CP Presse** (nouveau, `00-Pilotage`, obligatoire §18). Si un des quatre manque, s'arrêter et signaler — ne jamais deviner.
+- Skill `/redaction [site] [sujet]` (`.claude/skills/redaction/SKILL.md`) : charge les 4 documents depuis Drive, écrit l'article, poste le brouillon sur WordPress, puis inscrit une ligne au journal d'exécution (sans ça l'article compte comme non produit).
+- Sites pilotes actifs : GEH, Escapade, Maisons à Vivre (+ MAV Campagne, même WordPress, voix différente). Enduro Magazine, MX2K, Trail Adventure restent hors automatisation (publication manuelle uniquement).
 - Identifiants WordPress (mots de passe d'application) stockés localement dans `.claude/wp-credentials-{site}.local.json`, jamais à partager ni committer.
+- **Alerte sécurité (Charte V8 §19, à traiter par Nils)** : le fichier `Articles Nils.xlsx` sur Drive partagé contient un onglet MDP avec des mots de passe d'application WordPress en clair. La charte demande de les révoquer (pas juste déplacer) depuis WordPress et de les régénérer dans un gestionnaire de mots de passe.
 - Archives photos/PDF du groupe : lien de partage IONOS HiDrive Next, accès déjà autorisé en permanence (voir `memory/ionos-hidrive-standing-access.md`).

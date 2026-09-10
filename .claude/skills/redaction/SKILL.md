@@ -36,33 +36,42 @@ Si la fiche est marquée "proposition à valider" : signale-le à Nils avant de 
 
 Si aucune fiche n'existe pour ce site : signale-le, ne fabrique pas de voix éditoriale toi-même.
 
-## 3. Fichier de contexte du site et table de catégories
+## 3. Table de catégories du site
 
-Comme l'exige la Charte : vérifie l'existence d'un fichier de contexte spécifique au site et d'une table de catégories à jour. S'ils manquent, signale-le à Nils avant de continuer (ne pas inventer de catégorie ni d'auteur).
+Comme l'exige la Charte : vérifie l'existence d'une table de catégories à jour pour ce site (Drive, dossier `00-Pilotage`). Si elle manque, signale-le à Nils avant de continuer (ne pas inventer de catégorie ni d'auteur). Si une catégorie juste n'y figure pas, ne pas se rabattre sur "Non classé" — signaler et attendre.
 
-## 4. Anti-doublon
+## 4. Journal d'exécution (Charte V8 §18) — obligatoire
 
-Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` s'il existe. N'utilise aucun angle déjà listé pour ce site.
+Cherche dans `00-Pilotage` le document "Journal d'exécution — CP Presse". C'est le 4ème document obligatoire à charger (avec la Charte, la Voix, la table de catégories) — s'il manque, signale-le à Nils et arrête-toi, ne le remplace pas de mémoire.
 
-## 5. Recherche et rédaction
+Avant de choisir l'angle : lis le journal et signale tout sujet proche d'une ligne existante datant de moins de 90 jours pour ce site (anti-doublon renforcé — la recherche `_sujets-traites.md` locale ne suffit plus, le journal voit aussi les brouillons non publiés que la recherche WordPress ne montre pas).
+
+Après création et relecture du brouillon (étape 8) : ajoute une ligne au journal avec toutes ses colonnes (Date, Site, Sujet, Titre H1, ID WordPress, Lien d'édition, Source du sujet, Source de l'image, Exclusivité, Statut=Brouillon, Correction de fond=laisser vide — remplie par Nils à la relecture, Erreur technique le cas échéant). Un article non inscrit au journal est considéré comme non produit, même si le brouillon existe réellement sur WordPress.
+
+## 5. Anti-doublon local
+
+Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` s'il existe. N'utilise aucun angle déjà listé pour ce site. (Complémentaire au journal d'exécution de l'étape 4, pas un substitut.)
+
+## 6. Recherche et rédaction
 
 Applique strictement la Charte chargée à l'étape 1 (structure, SEO, sourcing, interdits, anti-plagiat, images, liens internes, transparence IA, contenu annonceurs) et la Voix chargée à l'étape 2 (ton, personnalité éditoriale, mécanique de raisonnement, hiérarchie des preuves). En cas de contradiction entre les deux, signale-la à Nils au lieu de trancher seul (comme celle déjà connue sur Escapade concernant "très" et la longueur des paragraphes — vérifie si elle a été résolue depuis).
 
 Recherche web obligatoire pour toute donnée factuelle. Aucune invention. Statut de publication toujours "brouillon" (phase de lancement).
 
-## 6. Livrable
+## 7. Livrable
 
 Suis le "Modèle de fiche de publication obligatoire" de la Charte (les 9 sections dans l'ordre, aucune omise). Fais passer le résultat par la checklist "Contrôle qualité" de la Charte avant de le considérer terminé.
 
-## 7. Sauvegarde
+## 8. Sauvegarde
 
 - Écris d'abord la fiche de publication complète (les 9 sections) dans `C:\Users\nilsm\Desktop\Projet Nils\Articles\{AAAA-MM-JJ}-{site}-{slug}.md` — ça reste la trace/l'audit, même une fois posté sur WordPress.
 - Ajoute le titre + l'angle à `Articles/_sujets-traites.md` (crée le fichier si besoin).
-- **Poste ensuite l'article directement en brouillon sur WordPress** (voir § 8 ci-dessous) — c'est ce que Nils veut : il relit et publie lui-même depuis WordPress, pas depuis un fichier local.
+- **Poste ensuite l'article directement en brouillon sur WordPress** (voir § 9 ci-dessous) — c'est ce que Nils veut : il relit et publie lui-même depuis WordPress, pas depuis un fichier local.
 - Ajoute une entrée courte et datée en haut de `JOURNAL.md`, avec le lien d'édition WordPress du brouillon créé.
+- Inscris l'article au journal d'exécution Drive (étape 4) — sans ça il compte comme non produit.
 - Termine par un résumé court : magazine, titre, mot-clé, **lien d'édition WordPress du brouillon** — Nils relit et publie lui-même (aucune action de publication automatique, quel que soit le contexte : le statut reste toujours "draft").
 
-## 8. Poster le brouillon sur WordPress (REST API)
+## 9. Poster le brouillon sur WordPress (REST API)
 
 **Identifiants** : un mot de passe d'application WordPress existe par site, stocké localement dans `C:\Users\nilsm\Desktop\Projet Nils\.claude\wp-credentials-{site}.local.json` (site = escapade, geh, mavc...). Si le fichier n'existe pas pour le site demandé, signale-le à Nils et demande-lui de le créer (voir procédure déjà utilisée pour Escapade : profil WordPress > Mots de passe d'application) plutôt que de deviner ou d'inventer un identifiant.
 

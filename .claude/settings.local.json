@@ -41,7 +41,12 @@
       "Bash(curl -s -u \"nils+claude@cppresse.fr:7nksyymZvuec2lQmNRjU3JXq\" -X POST \"https://maisonsavivre-mag.fr/wp-json/wp/v2/tags\" -H \"Content-Type: application/json; charset=utf-8\" --data-binary @\"C:\\\\Users\\\\nilsm\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nilsm-Desktop-Projet-Nils\\\\f7c213bc-1e5d-49ee-8936-e624724b9743\\\\scratchpad\\\\tag6.json\")",
       "Bash(curl -s -u \"nils+claude@cppresse.fr:7nksyymZvuec2lQmNRjU3JXq\" -X POST \"https://maisonsavivre-mag.fr/wp-json/wp/v2/tags\" -H \"Content-Type: application/json; charset=utf-8\" --data-binary @\"C:\\\\Users\\\\nilsm\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nilsm-Desktop-Projet-Nils\\\\f7c213bc-1e5d-49ee-8936-e624724b9743\\\\scratchpad\\\\tag7.json\")",
       "Bash(curl -s -u \"nils+claude@cppresse.fr:7nksyymZvuec2lQmNRjU3JXq\" -X POST \"https://maisonsavivre-mag.fr/wp-json/wp/v2/tags\" -H \"Content-Type: application/json; charset=utf-8\" --data-binary @\"C:\\\\Users\\\\nilsm\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nilsm-Desktop-Projet-Nils\\\\f7c213bc-1e5d-49ee-8936-e624724b9743\\\\scratchpad\\\\tag8.json\")",
-      "Bash(find ~\\\\AppData\\\\Local -name \"wp-credentials-escapade.local.json\" 2>/dev/null | head -5)"
+      "Bash(find ~\\\\AppData\\\\Local -name \"wp-credentials-escapade.local.json\" 2>/dev/null | head -5)",
+      "Bash(node -e ' *)",
+      "mcp__6d90357a-a59a-4661-a2c2-c64232c9de59__search_files",
+      "mcp__6d90357a-a59a-4661-a2c2-c64232c9de59__read_file_content",
+      "Bash(curl -s \"https://maisonsavivre-mag.fr/wp-json/wp/v2/categories?per_page=100\")",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(c['id'], c['name'], c['slug']\\) for c in data]\")"
     ]
   }
 }
