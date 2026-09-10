@@ -52,6 +52,18 @@ Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si 
 
 ---
 
+## ÉTAPE 2b : Règle archives print
+
+**Si le sujet mentionne "archive print", "dernier numéro" ou "essai du numéro X" :**
+
+1. **D'abord : chercher sur Drive** — les 4-5 derniers numéros du magazine sont souvent téléchargés. Utilise `search_files` pour chercher par titre magazine + date (ex. `title contains 'GEH' and title contains '24'` pour le n°24). Récupère fileId, lis avec `read_file_content`.
+
+2. **Sinon : aller sur IONOS HiDrive** — accès autorisé (lien dans mémoire). URL : `https://c01.storage.ionos.fr/s/n4wtRz7wkQFA5Ct`, dossier `{MAGAZINE}/ARCHIVES MAGAZINE` (ex. `GENERATION_ELECTRIQUE_HYBRIDE/ARCHIVES MAGAZINE/GELEC 24`). Consulte l'archive réelle — ne jamais inventer.
+
+**Signale la source** (Drive ou IONOS) à Nils dans le résumé final.
+
+---
+
 ## ÉTAPE 3 : Choisir l'angle + proposer le type d'article
 
 Basé sur la Voix et la recherche web, définis le **type d'article** parmi :
