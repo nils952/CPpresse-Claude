@@ -52,21 +52,33 @@ Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si 
 
 ---
 
-## ÉTAPE 2b : Règle archives print
+## ÉTAPE 2b : Mode "archive print" (100% automatique)
 
-**Si le sujet mentionne "archive print", "dernier numéro" ou "essai du numéro X" :**
+**Si le sujet mentionne "archive print", "dernier numéro", "numéro X" ou "essai du numéro" :**
 
-1. **D'abord : chercher sur Drive** — les 4-5 derniers numéros du magazine sont souvent téléchargés. Utilise `search_files` pour chercher par titre magazine + date (ex. `title contains 'GEH' and title contains '24'` pour le n°24). Récupère fileId, lis avec `read_file_content`.
+**BYPASS toutes les clarifications** — pas de questions, pas de validation. Procédure directe :
 
-2. **Sinon : aller sur IONOS HiDrive** — accès autorisé (lien dans mémoire). URL : `https://c01.storage.ionos.fr/s/n4wtRz7wkQFA5Ct`, dossier `{MAGAZINE}/ARCHIVES MAGAZINE` (ex. `GENERATION_ELECTRIQUE_HYBRIDE/ARCHIVES MAGAZINE/GELEC 24`). Consulte l'archive réelle — ne jamais inventer.
+1. **Récupère l'article du numéro papier** :
+   - D'abord Drive : `search_files` titre magazine + date/numéro (ex. `title contains 'GEH' and title contains '23'`).
+   - Sinon IONOS HiDrive : `https://c01.storage.ionos.fr/s/n4wtRz7wkQFA5Ct`, dossier `{MAGAZINE}/ARCHIVES MAGAZINE`.
+   - Lis le contenu (PDF, InDesign export, ou texte brut).
 
-**Signale la source** (Drive ou IONOS) à Nils dans le résumé final.
+2. **Adapte légèrement pour le web** (si nécessaire) :
+   - Format HTML (pas de formatage InDesign).
+   - Structure : titre + chapo + corps + conclusion (respecte la Charte).
+   - **Ne réécris pas** — reprend le texte tel quel, minimal editing.
+
+3. **Poste en brouillon directement** — pas d'étape 3, pas de validation, pas de clarification supplémentaire.
+
+**Source signalée** au résumé (Drive ou IONOS), mais zéro interruption avant le brouillon WordPress.
 
 ---
 
 ## ÉTAPE 3 : Choisir l'angle + proposer le type d'article
 
-Basé sur la Voix et la recherche web, définis le **type d'article** parmi :
+**Skip cette étape si mode "archive print"** (étape 2b) — l'article existe déjà, passe directement à l'étape 4.
+
+**Sinon**, basé sur la Voix et la recherche web, définis le **type d'article** parmi :
 - **Destination** : reportage voyage, région, expérience (Escapade, MAV)
 - **Hôtel/Adresse** : recommandation lieu, produit, service (Escapade, MAV)
 - **Pratique/Service** : guide, tutoriel, conseils (tous les sites)
@@ -76,19 +88,26 @@ Basé sur la Voix et la recherche web, définis le **type d'article** parmi :
 
 **Le type d'article détermine le design Zeen** (voir étape 9).
 
-Décris le sujet à Nils pour validation avant de rédiger (ex. "Escapade Magazine, article destination sur la Provence en automne, photos à chercher sur les archives IONOS").
+Décris le sujet à Nils pour validation avant de rédiger (ex. "Escapade Magazine, article destination sur la Provence en automne").
 
 ---
 
-## ÉTAPE 4 : Recherche + rédaction
+## ÉTAPE 4 : Recherche + rédaction (ou adaptation archive print)
 
-Applique **strictement** la Charte V8 (structure, SEO, sourcing, images, liens internes, interdits, anti-plagiat) + Voix du site (ton, raisonnement, hiérarchie preuves).
+**Si mode "archive print"** (étape 2b) :
+- Reprends le texte du numéro papier tel quel.
+- Adapte légèrement si besoin : format HTML, structure claire (titre + chapo + sections + conclusion).
+- Minimal editing, ne réécris pas complètement.
+- Passe par le "Contrôle qualité" Charte (formatage, pas le contenu).
 
+**Sinon** (nouvel article) :
+- Applique **strictement** la Charte V8 (structure, SEO, sourcing, images, liens internes, interdits, anti-plagiat) + Voix du site (ton, raisonnement, hiérarchie preuves).
 - Recherche web obligatoire pour tout fait chiffré.
 - Zéro invention, zéro reprise verbatim.
 - Suis la fiche de publication obligatoire (9 sections Charte).
 - Passe le résultat par le "Contrôle qualité" Charte avant de terminer.
-- Statut toujours brouillon.
+
+**Dans les deux cas** : Statut toujours brouillon.
 
 ---
 
