@@ -2,6 +2,36 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-10 (suite 2) — Fix accès Drive : utilisation connecteur MCP au lieu du browser
+
+**Problème** : la skill `/redaction` demandait constamment d'autoriser Claude à utiliser Chrome réel pour accéder à Drive, générant une demande d'auth à chaque exécution.
+
+**Solution** : adapter la skill pour utiliser le **connecteur Drive MCP** (outils `search_files` + `read_file_content`) au lieu du browser.
+
+**Changements** :
+- Étape 1 du SKILL.md rewrite : les 4 documents obligatoires (Charte V8, Voix éditoriale, Table de catégories, Journal d'exécution) sont maintenant chargés directement via le connecteur MCP.
+- **Zéro authentification supplémentaire, zéro demande d'autorisation Chrome.**
+- Le connecteur Drive est configuré et autorisé au niveau du compte, donc chaque appel passe transparemment.
+
+**Statut** : `/redaction` est maintenant complètement autonome et silencieux. Prêt à être testé sans interruption.
+
+## 2026-09-10 (suite) — Correction complète skill `/redaction` + contextes sites
+
+**Problème signalé** : la commande `/redaction` alertait constamment et n'automatisait pas le dépôt des articles avec le bon design Zeen et les images.
+
+**Corrections faites** :
+1. **Skill `/redaction` réécrite** (`.claude/skills/redaction/SKILL.md`) — intégration Charte V8 avec les 4 documents obligatoires (Charte, Voix, Table de catégories, Journal d'exécution), gestion complète du design Zeen par type d'article, gestion d'images (ordre de priorité clair), ajout du champ meta `_zeen_hero_design` au brouillon WordPress, encodage UTF-8 explicité partout.
+
+2. **Fichiers de contexte sites créés** (`.claude/site-contexts/{shortname}.json`) pour les 3 sites pilotes + MAVC :
+   - `geh.json` — GEH, author_id 19, design Zeen défaut 1 (contenu + sidebar)
+   - `escapade.json` — Escapade, author_id 13, design Zeen défaut 21 (plein cadre destination)
+   - `mav.json` — MAV, author_id 13, design Zeen défaut 42 (bandeau noir + image)
+   - `mavc.json` — MAVC, author_id 13, design Zeen défaut 42 (même site, ton séparé)
+
+3. **Intégration contextuelle** — la skill charge maintenant automatiquement le bon contexte à l'étape 0, extrait l'ID auteur, l'URL WordPress, le design Zeen par défaut, les credentials. Aucune duplication en dur, tout centralisé par site.
+
+**Statut** : skill complète et prête à être testée.
+
 ## 2026-09-10 — Mise en place routine veille lundi + troubleshooting permissions WordPress — RÉSOLU ✅
 
 **Objectif** : créer une routine automatisée lundi matin (3 NEWS + 1 ARCHIVE par site = 12 articles/semaine en brouillon sur GEH/Escapade/MAV).

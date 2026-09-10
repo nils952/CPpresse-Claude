@@ -1,0 +1,12 @@
+{
+  "name": "Maisons à Vivre Campagne",
+  "short": "mavc",
+  "url": "https://maisonsavivre-mag.fr",
+  "wordpress_url": "https://maisonsavivre-mag.fr/wp-json",
+  "credentials_file": ".claude/wp-credentials-mavc.local.json",
+  "author_id": 13,
+  "author_name": "Nils Martin",
+  "author_email": "nils+claude@cppresse.fr",
+  "default_design_zeen": "42",
+  "notes": "Site pilote actif depuis 09/2026 (même WordPress que MAV, mais ton séparé). Compte 'claude editorial' créé. Thème par défaut : contenu + image."
+}

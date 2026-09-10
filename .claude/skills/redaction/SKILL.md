@@ -1,104 +1,156 @@
 ---
 name: redaction
-description: Rédige un article prêt à publier pour un des 6 sites CP Presse, en respectant la Charte éditoriale et la Voix du site — va toujours chercher la version actuelle des deux sur Drive avant d'écrire (jamais de règles dupliquées en dur). Usage : /redaction [site] [sujet]
+description: "Rédige et poste un article en brouillon sur l'un des sites CP Presse. Charge automatiquement la Charte V8 + Voix éditoriale + Table de catégories + Journal d'exécution depuis Drive, rédige en respectant les règles, puis crée le brouillon sur WordPress avec le bon design Zeen et les images. Usage: /redaction [site] [sujet] (ex: /redaction geh voitures électriques aides 2026)"
 ---
 
-Tu es l'agent unique de rédaction de CP Presse (voir Charte, section "AGENT UNIQUE"). $ARGUMENTS contient le site visé et le sujet demandé par Nils (ex. "GEH voiture électrique aides 2026" ou "escapade road trip Ardèche").
+Tu es l'agent unique de rédaction de CP Presse (Charte V8). $ARGUMENTS contient : [site] [sujet].
 
-Ne duplique JAMAIS en dur les règles de la charte ou d'une voix dans une future modification de cette skill : tout se recharge depuis Drive à chaque exécution. C'est le problème qu'on a corrigé sur les anciens prompts d'automatisation (charte/voix dupliquées et devenues incohérentes avec la V4) — ne pas le refaire ici.
+**RÈGLE CRITIQUE** : Ne duplique JAMAIS de règles charte/voix en dur — tout se charge desde Drive à chaque exécution (source unique de vérité). Charte V8 depuis 10/09/2026.
 
-## 0. Identifier le site et le sujet
+---
 
-Mapping des noms courts vers les sites réels :
-- geh / génération électrique / électrique hybride → **Génération Électrique & Hybride** (electriquemag.fr)
-- escapade → **Escapade Magazine** (escapade-mag.fr)
-- mav / maisons à vivre (sans « campagne ») → **Maisons à Vivre** (maisonsavivre-mag.fr)
-- mavc / campagne / maisons à vivre campagne → **Maisons à Vivre Campagne** (maisonsavivre-mag.fr)
-- enduro → **Enduro Magazine** (enduromag.fr)
-- mx2k / motocross → **Motocross by MX2K** (mx2k.com)
-- trail / trail adventure → **Trail Adventure** (trailadventuremag.fr)
+## ÉTAPE 0 : Identifier site + sujet + charger contexte
 
-Si le site n'est pas identifiable dans $ARGUMENTS, ou si aucun sujet n'est donné, demande à Nils plutôt que de deviner.
+Mapping court → site réel :
+- `geh` / `electrique` / `hybride` → **Génération Électrique & Hybride** (electriquemag.fr)
+- `escapade` → **Escapade Magazine** (escapade-mag.fr)
+- `mav` → **Maisons à Vivre** (maisonsavivre-mag.fr)
+- `mavc` / `campagne` → **Maisons à Vivre Campagne** (maisonsavivre-mag.fr)
+- `enduro` → **Enduro Magazine** (enduromag.fr)
+- `mx2k` / `motocross` → **Motocross by MX2K** (mx2k.com)
+- `trail` → **Trail Adventure** (trailadventuremag.fr)
 
-Si le site est Enduro Magazine, MX2K ou Trail Adventure : la Charte (section "PHASE ACTUELLE") les met en attente (pilote actif = GEH, Maisons à Vivre, Escapade uniquement). Signale-le à Nils et demande confirmation explicite avant de continuer sur un de ces 3 sites — ce n'est pas bloquant, juste hors pilote pour l'instant.
+**Charge le fichier de contexte** : `C:\Users\nilsm\Desktop\Projet Nils\.claude\site-contexts\{shortname}.json` (ex. `geh.json` pour GEH). Il contient l'ID auteur WordPress, l'URL site, le design Zeen par défaut, etc. Si absent, signale à Nils.
 
-## 1. Charger la Charte actuelle (jamais une version archivée)
+**Si site indentifiable mais hors pilote** (Enduro/MX2K/Trail) : signale à Nils — la Charte V8 les met en attente, mais ce n'est pas bloquant si Nils confirme.
 
-Utilise les outils Google Drive (recherche par titre) pour trouver, dans le dossier `00-Pilotage` (id `116tW87Xw70gFRtQO1FDAfV5_iEcfVJar`), le document dont le titre commence par "CHARTE REDACTIONNELLE ET SEO" et qui n'est PAS préfixé par `[REMPLACÉE` ou `[OBSOLÈTE`. S'il y a plusieurs résultats valides (ne devrait pas arriver), prends celui avec le numéro de version le plus élevé dans le titre. Lis-le intégralement.
+**Si pas de sujet ou ambiguïté** : demande clarification plutôt que deviner.
 
-Si tu ne trouves aucun document valide, arrête-toi et signale le problème à Nils — ne rédige jamais sans charte chargée.
+---
 
-## 2. Charger la Voix éditoriale actuelle du site
+## ÉTAPE 1 : Charger les 4 documents obligatoires (Charte V8 §18)
 
-Dans le dossier `Voix éditoriales par site` (id `1WqpAt1q_rrE_BJYpcS-f5rzCD1XCM-x1`), cherche la fiche dont le titre correspond au site (voir mapping ci-dessus), **en excluant tout titre préfixé `[REMPLACÉE` ou `[OBSOLÈTE`** (versions archivées — même principe que pour la Charte à l'étape 1, les fiches voix sont maintenant versionnées de la même façon). Lis-la intégralement.
+Tous depuis Drive via le connecteur MCP (outils `search_files` + `read_file_content`). **Aucune authentification supplémentaire, aucune demande d'autorisation.** Arrête-toi si un manque.
 
-Si la fiche est marquée "proposition à valider" : signale-le à Nils avant de l'utiliser en production — demande confirmation que le positionnement retenu est bon, sauf si Nils a déjà validé dans la conversation en cours.
+### 1a. Charte V8
+Utilise `search_files` avec query : `title contains 'CHARTE REDACTIONNELLE ET SEO' and not title contains '[REMPLACÉE' and not title contains '[OBSOLÈTE'`. Récupère le fileId, puis lis-le intégralement avec `read_file_content`.
 
-Si aucune fiche n'existe pour ce site : signale-le, ne fabrique pas de voix éditoriale toi-même.
+### 1b. Voix éditoriale du site
+Utilise `search_files` : `title contains 'Voix éditoriale' and title contains '{NomSite}' and not title contains '[REMPLACÉE' and not title contains '[OBSOLÈTE'` (remplace {NomSite} par le nom complet : "Escapade Magazine", "GEH", etc.). Récupère fileId, lis avec `read_file_content`. Signale si marquée "proposition à valider".
 
-## 3. Table de catégories du site
+### 1c. Table de catégories du site
+Utilise `search_files` : `title contains 'Table' and title contains '{NomSite}' or title contains 'referencement'` (adapte selon le vrai titre). Lis avec `read_file_content`. Extrais les IDs de catégories.
 
-Comme l'exige la Charte : vérifie l'existence d'une table de catégories à jour pour ce site (Drive, dossier `00-Pilotage`). Si elle manque, signale-le à Nils avant de continuer (ne pas inventer de catégorie ni d'auteur). Si une catégorie juste n'y figure pas, ne pas se rabattre sur "Non classé" — signaler et attendre.
+### 1d. Journal d'exécution — CP Presse
+Utilise `search_files` : `title = 'Journal d\'exécution — CP Presse'`. Lis avec `read_file_content`. Vérifie les sujets proches datant de < 90j pour ce site (anti-doublon renforcé).
 
-## 4. Journal d'exécution (Charte V8 §18) — obligatoire
+---
 
-Cherche dans `00-Pilotage` le document "Journal d'exécution — CP Presse". C'est le 4ème document obligatoire à charger (avec la Charte, la Voix, la table de catégories) — s'il manque, signale-le à Nils et arrête-toi, ne le remplace pas de mémoire.
+## ÉTAPE 2 : Anti-doublon local
 
-Avant de choisir l'angle : lis le journal et signale tout sujet proche d'une ligne existante datant de moins de 90 jours pour ce site (anti-doublon renforcé — la recherche `_sujets-traites.md` locale ne suffit plus, le journal voit aussi les brouillons non publiés que la recherche WordPress ne montre pas).
+Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si absent). Écarte tout angle déjà listé pour ce site.
 
-Après création et relecture du brouillon (étape 8) : ajoute une ligne au journal avec toutes ses colonnes (Date, Site, Sujet, Titre H1, ID WordPress, Lien d'édition, Source du sujet, Source de l'image, Exclusivité, Statut=Brouillon, Correction de fond=laisser vide — remplie par Nils à la relecture, Erreur technique le cas échéant). Un article non inscrit au journal est considéré comme non produit, même si le brouillon existe réellement sur WordPress.
+---
 
-## 5. Anti-doublon local
+## ÉTAPE 3 : Choisir l'angle + proposer le type d'article
 
-Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` s'il existe. N'utilise aucun angle déjà listé pour ce site. (Complémentaire au journal d'exécution de l'étape 4, pas un substitut.)
+Basé sur la Voix et la recherche web, définis le **type d'article** parmi :
+- **Destination** : reportage voyage, région, expérience (Escapade, MAV)
+- **Hôtel/Adresse** : recommandation lieu, produit, service (Escapade, MAV)
+- **Pratique/Service** : guide, tutoriel, conseils (tous les sites)
+- **Listicle** : top N, classement, sélection (Escapade, MAV, GEH)
+- **News/Actu** : tendance, annonce, décryptage (GEH, MX2K, Enduro)
+- **Test/Essai** : produit, service, expérience (GEH, MX2K, Enduro)
 
-## 6. Recherche et rédaction
+**Le type d'article détermine le design Zeen** (voir étape 9).
 
-Applique strictement la Charte chargée à l'étape 1 (structure, SEO, sourcing, interdits, anti-plagiat, images, liens internes, transparence IA, contenu annonceurs) et la Voix chargée à l'étape 2 (ton, personnalité éditoriale, mécanique de raisonnement, hiérarchie des preuves). En cas de contradiction entre les deux, signale-la à Nils au lieu de trancher seul (comme celle déjà connue sur Escapade concernant "très" et la longueur des paragraphes — vérifie si elle a été résolue depuis).
+Décris le sujet à Nils pour validation avant de rédiger (ex. "Escapade Magazine, article destination sur la Provence en automne, photos à chercher sur les archives IONOS").
 
-Recherche web obligatoire pour toute donnée factuelle. Aucune invention. Statut de publication toujours "brouillon" (phase de lancement).
+---
 
-## 7. Livrable
+## ÉTAPE 4 : Recherche + rédaction
 
-Suis le "Modèle de fiche de publication obligatoire" de la Charte (les 9 sections dans l'ordre, aucune omise). Fais passer le résultat par la checklist "Contrôle qualité" de la Charte avant de le considérer terminé.
+Applique **strictement** la Charte V8 (structure, SEO, sourcing, images, liens internes, interdits, anti-plagiat) + Voix du site (ton, raisonnement, hiérarchie preuves).
 
-## 8. Sauvegarde
+- Recherche web obligatoire pour tout fait chiffré.
+- Zéro invention, zéro reprise verbatim.
+- Suis la fiche de publication obligatoire (9 sections Charte).
+- Passe le résultat par le "Contrôle qualité" Charte avant de terminer.
+- Statut toujours brouillon.
 
-- Écris d'abord la fiche de publication complète (les 9 sections) dans `C:\Users\nilsm\Desktop\Projet Nils\Articles\{AAAA-MM-JJ}-{site}-{slug}.md` — ça reste la trace/l'audit, même une fois posté sur WordPress.
-- Ajoute le titre + l'angle à `Articles/_sujets-traites.md` (crée le fichier si besoin).
-- **Poste ensuite l'article directement en brouillon sur WordPress** (voir § 9 ci-dessous) — c'est ce que Nils veut : il relit et publie lui-même depuis WordPress, pas depuis un fichier local.
-- Ajoute une entrée courte et datée en haut de `JOURNAL.md`, avec le lien d'édition WordPress du brouillon créé.
-- Inscris l'article au journal d'exécution Drive (étape 4) — sans ça il compte comme non produit.
-- Termine par un résumé court : magazine, titre, mot-clé, **lien d'édition WordPress du brouillon** — Nils relit et publie lui-même (aucune action de publication automatique, quel que soit le contexte : le statut reste toujours "draft").
+---
 
-## 9. Poster le brouillon sur WordPress (REST API)
+## ÉTAPE 5 : Image à la une
 
-**Identifiants** : un mot de passe d'application WordPress existe par site, stocké localement dans `C:\Users\nilsm\Desktop\Projet Nils\.claude\wp-credentials-{site}.local.json` (site = escapade, geh, mavc...). Si le fichier n'existe pas pour le site demandé, signale-le à Nils et demande-lui de le créer (voir procédure déjà utilisée pour Escapade : profil WordPress > Mots de passe d'application) plutôt que de deviner ou d'inventer un identifiant.
+**Ordre de priorité** (Charte V8) :
+1. Banque d'images (Envato Elements si branché).
+2. Archive IONOS si article lie un numéro réel ou un angle d'archives.
+3. Recherche web (crédit requis si contrefaçon).
+4. Génération IA (si bien faite).
+5. Dépôt sans image si aucune source, Nils en trouvera une — c'est acceptable en brouillon.
 
-**Catégorie** : prends l'ID exact dans la "Table de referencement" (Drive, chargée à l'étape 3). Ne jamais inventer un ID.
+Redimensionne en local si possible (Python/PIL ou PowerShell/GDI) : ~1200px large, 16:9 ou compatible thème. Si impossible, mets-la quand même en brouillon, signale-le à Nils.
 
-**Tags** : pour chaque étiquette, fais un `POST /wp-json/wp/v2/tags` avec `{"name": "..."}`. Si le tag existe déjà, l'API renvoie une erreur `term_exists` avec l'ID existant dans `data.term_id` — récupère-le. Sinon la création renvoie directement le nouvel ID. Attention à l'encodage UTF-8 (accents) : écrire le JSON dans un fichier avant de l'envoyer avec curl plutôt que de l'interpoler en ligne de commande, pour éviter les erreurs `rest_invalid_json` sur les caractères accentués.
+---
 
-**Création du brouillon** : `POST /wp-json/wp/v2/posts` avec au minimum :
+## ÉTAPE 6 : Sauvegardes locales
+
+- Fichier markdown : `C:\Users\nilsm\Desktop\Projet Nils\Articles\{AAAA-MM-JJ}-{site}-{slug}.md` (les 9 sections).
+- Ajoute titre + angle à `Articles/_sujets-traites.md`.
+- Pas de publication manuelle (étape 9 en automatise le brouillon).
+
+---
+
+## ÉTAPE 7 : Poster le brouillon sur WordPress
+
+Lis les credentials depuis le **fichier de contexte chargé à l'étape 0** : chemin `.claude/wp-credentials-{site}.local.json`. Si absent, signale à Nils (ne pas deviner).
+
+**Flux** :
+1. **Crée les tags** (POST /wp-json/wp/v2/tags, recycle les IDs existants si le tag existe déjà).
+2. **Upload image** (POST /wp-json/wp/v2/media si fichier présent et redimensionné). Récupère l'ID media.
+3. **Crée le post** (POST /wp-json/wp/v2/posts) avec :
+   - `title`: H1 article
+   - `slug`: URL slug
+   - `status: "draft"` ← **OBLIGATOIRE draft, jamais publish**
+   - `author`: ID depuis contexte site (étape 0)
+   - `categories`: [ID exact depuis table de catégories]
+   - `tags`: [IDs crées/récupérés à l'étape 1]
+   - `excerpt`: chapo HTML (section 3 Charte)
+   - `content`: corps HTML complet (sections 4-8 Charte)
+   - `featured_media`: ID image (étape 2) ou 0 si absent
+   - `meta`:
+     - `_yoast_wpseo_focuskw`: mot-clé principal
+     - `_yoast_wpseo_title`: titre SEO
+     - `_yoast_wpseo_metadesc`: métadescription
+     - `_zeen_hero_design`: ID design Zeen (déterminé étape 3, valeurs : 1, 21, 42, etc.)
+
+4. **Récupère la réponse** : ID du brouillon créé (pour le lien d'édition en résumé).
+
+**Encodage UTF-8** : écris JSON dans un fichier avant curl (accents + caractères spéciaux). Exemple :
+```bash
+curl -u "user:app-password" \
+  -X POST "https://site.com/wp-json/wp/v2/posts" \
+  -H "Content-Type: application/json; charset=utf-8" \
+  --data-binary @/tmp/post.json
 ```
-{
-  "title": "...",
-  "slug": "...",
-  "status": "draft",
-  "author": <id de l'auteur défini au fichier de contexte du site>,
-  "categories": [<id>],
-  "tags": [<id1>, <id2>, ...],
-  "excerpt": "<chapo>",
-  "content": "<corps HTML complet>",
-  "meta": {
-    "_yoast_wpseo_focuskw": "...",
-    "_yoast_wpseo_title": "...",
-    "_yoast_wpseo_metadesc": "..."
-  }
-}
-```
-Écrire ce JSON dans un fichier (même raison d'encodage que pour les tags) puis `curl -u "user:app-password" -X POST .../wp-json/wp/v2/posts -H "Content-Type: application/json; charset=utf-8" --data-binary @fichier.json`. Les champs Yoast passent par `meta` et sont acceptés en écriture sur les sites déjà testés (confirmé sur Escapade le 09/09/2026) — si un site renvoie une erreur ou ignore silencieusement ces champs, signale-le à Nils plutôt que de supposer que c'est pris en compte.
 
-**Image à la une** : upload via `POST /wp-json/wp/v2/media` (fichier binaire, déjà redimensionné 1200px/16:9 si possible), puis `featured_media` sur le post. Si aucun outil de retraitement d'image n'est disponible dans la session pour redimensionner une image source trop lourde, ne bloque pas la création du brouillon pour autant : crée-le sans image à la une et signale-le clairement à Nils dans le résumé final, avec le chemin de la source d'image identifiée.
+---
 
-**Toujours** : `status: draft`. Ne jamais passer un article en `publish`, `pending` ou autre, quel que soit le contexte (phase de lancement, Charte).
+## ÉTAPE 8 : Journalisation + résumé
+
+- Inscris l'article au **Journal d'exécution Drive** (colonnes : Date, Site, Sujet, Titre H1, ID WordPress, Lien d'édition, Source sujet, Source image, Exclusivité, Statut=Brouillon, Correction de fond=vide). **Sans cette entrée, l'article compte comme non produit.**
+- Ajoute une ligne courte + datée en haut de `JOURNAL.md` (ce dossier) : site, titre, lien édition brouillon WordPress.
+- Affiche le résumé final : **Magazine | Titre | Mot-clé | [Lien édition brouillon](URL)** — Nils relit et publie lui-même, zéro action auto.
+
+---
+
+## Design Zeen par type d'article
+
+**À valider avec Nils sur ses articles réels**, mais base connue (testée sur Escapade) :
+- **Destination** (plein cadre, immersif) → design Zeen `21`
+- **Hôtel/Adresse** (bandeau noir + image) → design Zeen `42`
+- **Pratique/Service** (contenu + sidebar articles) → design Zeen `1`
+- **Listicle** (plein cadre + sommaire auto) → design Zeen `21` + flag `zeen_listicle` si disponible
+- **News/Test** (flexible, design par défaut du site) → pas de override, ou design site défaut
+
+Si doute sur le design ou type flou : propose à Nils, ne force pas.

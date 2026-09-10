@@ -1,0 +1,12 @@
+{
+  "name": "Génération Électrique & Hybride",
+  "short": "geh",
+  "url": "https://electriquemag.fr",
+  "wordpress_url": "https://electriquemag.fr/wp-json",
+  "credentials_file": ".claude/wp-credentials-geh.local.json",
+  "author_id": 19,
+  "author_name": "Nils Martin",
+  "author_email": "nils+claude@cppresse.fr",
+  "default_design_zeen": "1",
+  "notes": "Site pilote actif depuis 09/2026. Compte 'claude editorial' créé pour publication brouillons."
+}

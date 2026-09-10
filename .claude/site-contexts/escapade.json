@@ -1,0 +1,12 @@
+{
+  "name": "Escapade Magazine",
+  "short": "escapade",
+  "url": "https://escapade-mag.fr",
+  "wordpress_url": "https://escapade-mag.fr/wp-json",
+  "credentials_file": ".claude/wp-credentials-escapade.local.json",
+  "author_id": 13,
+  "author_name": "Nils Martin",
+  "author_email": "nils+claude@cppresse.fr",
+  "default_design_zeen": "21",
+  "notes": "Site pilote actif depuis 09/2026. Compte 'claude editorial' créé. Thème par défaut : destination/plein cadre."
+}
