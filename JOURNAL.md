@@ -2,6 +2,21 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-10 — Mise en place routine veille lundi + troubleshooting permissions WordPress — RÉSOLU ✅
+
+**Objectif** : créer une routine automatisée lundi matin (3 NEWS + 1 ARCHIVE par site = 12 articles/semaine en brouillon sur GEH/Escapade/MAV).
+
+**Actions faites** :
+1. Supprimé les 2 routines précédentes (audit-hebdo-sites + veille-hebdo-3-magazines) — elles n'étaient plus utilisées.
+2. Créé nouvelle routine `veille-lundi-12-articles` : SKILL.md complet rangé dans `.claude/scheduled-tasks/veille-lundi-12-articles/SKILL.md`, prêt à tourner chaque lundi 8h.
+3. Testé la création de brouillon sur GEH : découverte initiale d'erreur 400 (encodage JSON), réglée via correction de la sérialisation.
+4. Nils a confirmé que le compte `nils+claude@cppresse.fr` a **déjà le rôle Éditeur** assigné sur GEH (et probablement Escapade/MAV).
+5. **Test final validé** : création d'un brouillon test (post ID 25725) sur GEH via l'API WordPress — succès, status 201 Created.
+
+**Statut final** : ✅ **ROUTINE OPÉRATIONNELLE**. Prête à tourner chaque lundi 8h00 pour générer et poster 12 articles (3 NEWS + 1 ARCHIVE par site) en brouillon sur GEH/Escapade/MAV.
+
+**À confirmer pour la suite** : même setup (rôles Éditeur) sur Escapade et MAV (actuellement supposé OK mais non testé).
+
 ## 2026-09-09 — Chantier "articles froids" (evergreen) : repérage + 3 livres blancs pilier écrits, validation Nils en attente avant les 45 FAQ
 
 Nouveau chantier lancé par Nils : des contenus evergreen ("articles froids", FAQ débutant type "quel équipement pour son premier cross") + des livres blancs, sur les 3 sites hors pilote **Enduro, MX2K, Trail Adventure** (confirmation explicite de Nils pour sortir du périmètre pilote sur ce chantier précis).
