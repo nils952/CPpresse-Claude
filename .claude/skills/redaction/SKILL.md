@@ -54,29 +54,33 @@ Lis `C:\Users\nilsm\Desktop\Projet Nils\Articles\_sujets-traites.md` (créé si 
 
 ---
 
-## ÉTAPE 2b : Mode "archive print" (100% automatique, zéro question)
+## ÉTAPE 2b : Mode "archive print" (100% automatique, Nils fournit numéro + titre)
 
 **Si le sujet mentionne "archive print", "dernier numéro", "numéro X" ou "essai du numéro" :**
 
-**BYPASS TOTAL** — pas de questions, pas de validation, pas de clarification. Procédure directe du début à la fin :
+**Demande à Nils (UNE SEULE FOIS)** : 
+```
+Quel est le numéro et le titre/sujet de l'article que tu veux adapter ?
+Ex. "Numéro 23 — Essai Tesla Model Y" ou "Dernier numéro — Article destination Provence"
+```
 
-1. **Récupère l'article du numéro papier** :
-   - D'abord Drive : `search_files` titre magazine + date/numéro (ex. `title contains 'GEH' and title contains '23'`).
-   - Sinon IONOS HiDrive : `https://c01.storage.ionos.fr/s/n4wtRz7wkQFA5Ct`, dossier `{MAGAZINE}/ARCHIVES MAGAZINE`.
-   - Lis le contenu (PDF, InDesign export, ou texte brut).
+Une fois que Nils donne le numéro + titre, **BYPASS TOTAL** — pas d'autres questions, pas de validation. Procédure directe :
 
-2. **Adapte légèrement pour le web** (si nécessaire) :
+1. **Utilise le texte que Nils a accès à** (il peut copier-coller depuis IONOS HiDrive, Drive, ou un PDF local) :
+   - Pas d'accès automatique IONOS depuis cet environnement.
+   - Nils fournit le contenu brut (texte, copie-colle du PDF, ou fichier).
+   - Alternative : on crée le brouillon sans contenu rédigé, Nils le complète après.
+
+2. **Adapte légèrement pour le web** (si contenu fourni) :
    - Format HTML (pas de formatage InDesign).
    - Structure : titre + chapo + corps + conclusion (respecte la Charte).
    - **Ne réécris pas** — reprend le texte tel quel, minimal editing.
 
-3. **Poste EN BROUILLON DIRECTEMENT** — pas d'étape 3, pas d'étape 4, pas de validation intermédiaire, pas de "tu veux que..." :
-   - Skip étapes 3-4 complètement.
-   - Va droit à l'étape 7 (dépôt WordPress).
+3. **Poste EN BROUILLON DIRECTEMENT** — skip étapes 3-4 complètement, va droit à l'étape 7 :
    - Récupère image si trouvée, sinon sans.
    - Affiche lien d'édition WordPress.
 
-**Zéro interruption du début à la fin. Nils visualise le brouillon direct dans WordPress.**
+**Zéro interruption après le numéro + titre. Brouillon direct dans WordPress.**
 
 ---
 
