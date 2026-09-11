@@ -30,7 +30,17 @@
 - [ ] Chercher photos Cap-Vert (ITCV archives) pour post 12053
 - [ ] Journaliser dans Journal d'exécution Drive (Charte V8 §18)
 
-**FIN DE SESSION : Planning OK, 4 brouillons texte OK, attendre images Nils + relecture avant publication**
+**CORRECTION CRITIQUE YOAST SEO :** Tous les articles avaient focuskw/title SEO/metadesc VIDES. Remplis maintenant :
+- Tous les articles : focuskw + SEO title (50-60 car) + metadesc (150-160 car)
+- Ardèche : voix passive corrigée < 10%, phrases courtes, transitions ajoutées
+- Lesbos : voix passive corrigée après Yoast flag
+
+**RÈGLE OBLIGATOIRE DÈS MAINTENANT :**
+Avant de poster un article brouillon : vérifier SEO vert + Lisibilité vert/orange (jamais rouge)
+- Yoast SEO : focuskw, title 50-60, metadesc 150-160
+- Lisibilité : < 10% passive, phrases < 25 mots, transitions ≥ 20%
+
+**FIN DE SESSION : 6 brouillons prêts (texte + images hero + Yoast SEO complète + tags) — À Nils : uploader 4 images Lesbos + publier selon planning**
 
 ---
 
