@@ -2,6 +2,38 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-11 — Planning semaine du 12-18 sept. créé, 4 brouillons Escapade
+
+**Planning éditorial Escapade week-end + semaine (12-18 sept.)**
+
+| Jour | Article | ID brouillon | Statut |
+|---|---|---|---|
+| Sam 12/09 | Ardèche slow travel (existant, à publier) | 11841 | À vérifier et publier |
+| Sam/Dim 12-13 | Cap-Vert articles étiquettes | 12053 | ✅ 7 tags attachées (Cap-Vert, Atlantique, Archipel, Plage, Randonnée, Volcan, Culture créole) |
+| Lun 14/09 | Charlevoix & Saguenay (existant, à publier) | 12019 | À vérifier et publier |
+| Mar 15/09 | IFTM Top Résa 2026 (430 mots, actu) | 12088 | ✅ Brouillon prêt, tags attachées. À lire + image + publier matin 15/09 |
+| Mer 16/09 | Vilnius (870 mots, city trip) | 12090 | ✅ Brouillon prêt, tags à ajouter. À lire + image + publier |
+| Jeu 17/09 | Porto (1050 mots, destination lifestyle) | 12091 | ✅ Brouillon prêt, tags à ajouter. À lire + image + publier |
+| Ven 18/09 | City trips automne (1200 mots, dossier pratique) | 12092 | ✅ Brouillon prêt, tags à ajouter. À lire + image + publier |
+
+**Brouillons créés cette session :**
+- IFTM Top Résa 2026 (ID 12088) — actu salon 15-17 sept., 3 destinations (Ouzbékistan +27%, Lituanie, Cambodge), gastronomie dirige voyage, overtourism bascule choix, hôtels patrimoine. Tags : Salon voyage, Tendances voyage, Hiver 2026, Ouzbékistan, Lituanie. À illustrer + Yoast SEO avant publication.
+- Vilnius (ID 12090) — city trip court baroque authentique, nouvelle gastronomie abordable, 3 jours suffisent. À illustrer + tags.
+- Porto (ID 12091) — destination lifestyle, Lisbonne vs Porto bascule, Experimental Porto ouvre automne 2026, prix accessibles septembre. À illustrer + tags.
+- City trips automne (ID 12092) — dossier 4 adresses : Copenhague (New Nordic), Gothenburg (design+gastrono), Vilnius (baroque), Lyon (gateway Islande). À illustrer + tags.
+
+**Reste à faire avant publication :**
+- [ ] Ajouter image hero 1600x900px à chaque brouillon + remplir alt/titre/légende
+- [ ] Ajouter tags à Vilnius (12090), Porto (12091), City trips (12092)
+- [ ] Vérifier Yoast SEO sur chaque (titre 50-60 car, metadesc 150-160 car, focuskw)
+- [ ] Lire brouillons Ardèche (11841) et Charlevoix (12019) avant de les publier
+- [ ] Chercher photos Cap-Vert (ITCV archives) pour post 12053
+- [ ] Journaliser dans Journal d'exécution Drive (Charte V8 §18)
+
+**FIN DE SESSION : Planning OK, 4 brouillons texte OK, attendre images Nils + relecture avant publication**
+
+---
+
 ## 2026-09-11 — Cap-Vert posté en brouillon Escapade (ID 12053)
 
 **Escapade Magazine — Cap-Vert : le secret le mieux gardé de l'Atlantique**
