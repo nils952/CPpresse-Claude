@@ -2,6 +2,26 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-11 (suite) — GSP (Génération sans permis) : pages légales + publicité complètes
+
+**Chantier pied de page — nouveau site : GSP (gsanspermis.com)**
+
+Credentials créées et testées (nils+claude@cppresse.fr, mot de passe app OK 11/09).
+
+**Pages mises à jour/créées :**
+
+1. **Page A Propos (ID 10054)** — Adresse Montrouge + infos BENAPRESSE
+2. **Page Publicité (ID 10055)** — Tarifs web complets 2026 (100k visites, 950k pages vues, Mega Banner 330€/sem, Pop-up 750€/sem, etc.)
+3. **Page Mentions légales (ID 21607)** — Créée (BENAPRESSE, adresse Montrouge, directeurs)
+
+**Menu A propos** :
+- Lien Publicité déjà présent ✅
+- Lien Mentions légales créé — À ajouter manuellement au menu (API menu-items: 403 Forbidden)
+
+**À faire manuellement par Nils** : ajouter "Mentions légales" → `/mentions-legales/` au menu "A propos" via BO WordPress.
+
+---
+
 ## 2026-09-11 — Planning semaine du 12-18 sept. créé, 4 brouillons Escapade
 
 **Planning éditorial Escapade week-end + semaine (12-18 sept.)**
