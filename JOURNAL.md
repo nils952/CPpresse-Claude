@@ -2,6 +2,23 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-11 — Cap-Vert posté en brouillon Escapade (ID 12053)
+
+**Escapade Magazine — Cap-Vert : le secret le mieux gardé de l'Atlantique**
+- Source : N°20 pages 14-21 (mode archive print)
+- Brouillon WP : https://escapade-mag.fr/wp-admin/post.php?post=12053&action=edit
+- Catégorie : Destinations (ID 33) — Zeen design 21
+- Image : à ajouter par Nils (photos ITCV)
+- Mention N°20 + lien boutiquecppresse.com ✅
+- Liens internes : Malewane Lodge (ID 11597), boutique CP Presse
+- À journaliser dans Journal d'exécution Drive (voir ci-dessous)
+
+**Reste à faire session**
+- [ ] San Sebastián (Escapade) + Plan de travail MAV — JSONs prêts, à poster maintenant que auth OK
+- [ ] Ajouter credentials Trial Mag quand Nils les fournit
+
+---
+
 ## 2026-09-11 — Erreurs session + checklist article complète (SEO, lisibilité, images)
 
 ### Erreurs commises à ne plus reproduire

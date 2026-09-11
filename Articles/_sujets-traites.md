@@ -11,6 +11,9 @@
 - Génération Électrique & Hybride — Leasing social 2026 : ce que cache l'offre à 100 € (3e édition, 401 M€, 50 000 véhicules, 20 modèles contre 27, loyers 94-199 €, conditions de RFR et non-cumul)
 - Escapade Magazine — Angsana Corfu Resort & Spa : l'art de ralentir sur les hauteurs de Corfou (portrait destination + hôtel, angle arrière-saison, spa Banyan Tree, 37 villas, 4 restaurants, rooftop Vertigo, activités terroir ; source = dossier de presse MCA)
 
+## 2026-09-11
+- Escapade Magazine — Cap-Vert : le secret le mieux gardé de l'Atlantique (dix îles, Santo Antão, Fogo, Cidade Velha UNESCO, 6h de Paris ; source = N°20 pages 14-21, mode archive print ; ID WP 12053, brouillon ✅)
+
 ## 2026-09-10
 - Génération Électrique & Hybride — Cupra Born 2026 : notre essai de la compacte électrique sportive (3 versions 190-326 ch, batteries 58-79 kWh, écart recharge annoncée/réelle, angle Born VZ confort vs sensations ; ID WP 25734, brouillon)
 - Escapade Magazine — San Sebastián en octobre : la meilleure saison pour y aller (pintxos Parte Vieja, Concha hors saison, octobre météo + budget ; JSON prêt, ⚠️ non posté — 401 auth)
