@@ -1,4 +1,11 @@
 ﻿competencephoto/
 
-# Mots de passe d'application WordPress — NE JAMAIS COMMITTER
-.claude/*.local.json
+# Credentials & secrets — NE JAMAIS COMMITTER
+.claude/**/*.local.json
+.claude/**/*.local*.json
+.env
+*.key
+*.secret
+credentials/
+wp-config*.php
+*.pem

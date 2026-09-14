@@ -4,6 +4,25 @@
 
 ---
 
+## ✅ RÉSOLUS — Phase 4 Escapade (2026-09-13)
+
+### ✅ P6 : Credentials Escapade — chemin incorrect dans config
+
+**Résolu** : 13/09/2026  
+**Cause** : La config pointait vers `~/.claude/wp-credentials-escapade.local.json` (fichier home, password périmé depuis 09/09). Le fichier correct et à jour est `.claude/wp-credentials-escapade.local.json` (racine projet, mis à jour 09/11).  
+**Solution** : `credentials_path` corrigé dans `CP-PRESSE-AI/01_CONFIG/sites/escapade.json` → `.claude/wp-credentials-escapade.local.json`  
+**Validation** : GET /users/me → HTTP 200, user_id=39, slug=claude-editorial, role=editor ✓
+
+---
+
+### ✅ P7 : author_id Escapade incorrect
+
+**Résolu** : 13/09/2026  
+**Cause** : La config avait `author_id: 13` (valeur supposée). Le compte claude-editorial a réellement l'ID 39 sur ce site.  
+**Solution** : `author_id` mis à jour à 39 dans `CP-PRESSE-AI/01_CONFIG/sites/escapade.json`
+
+---
+
 ## 🟢 RÉSOLUS — Phase 3 Test (2026-09-12)
 
 ### ✅ P1 : Design Zeen validé et fonctionnel

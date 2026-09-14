@@ -2,6 +2,54 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-14 — Test workflow /redaction Escapade + MAV
+
+[2026-09-14] MAV — "Couleurs d'automne 2026 pour intérieur urbain : lesquelles adopter et à quel coût" — Brouillon ID 20339 — https://maisonsavivre-mag.fr/?p=20339 — INCOMPLET (image manquante)
+[2026-09-14] Escapade — "Automne 2026 en Europe : les destinations qui méritent un détour" — Brouillon ID 12114 — https://escapade-mag.fr/?p=12114 — INCOMPLET (image manquante)
+
+### Actions réalisées
+
+- Test workflow complet `/redaction escapade` sur "Test système validation workflow"
+- Toutes les étapes OK (0 à 7.4) sans blocage
+- Brouillon ID 12114 confirmé `draft` sur escapade-mag.fr
+- Yoast meta enregistrées (focuskw, titre SEO, metadesc)
+- Zeen design 21 envoyé mais non retourné API (à vérifier admin WP)
+- Pas d'image (featured_media: 0) — à compléter par Nils
+- Différences vs GEH : voir rapport final
+
+---
+
+## 2026-09-13 — Fiabilisation /redaction + pré-audit Escapade
+
+### Actions réalisées
+
+**Corrections skill /redaction** :
+- Source de contexte : `.claude/site-contexts/` → `CP-PRESSE-AI/01_CONFIG/sites/` (source unique)
+- Fichiers locaux désormais prioritaires (Charte V8, Voix) — Drive jamais bloquant
+- Reporting visible ajouté : `[ÉTAPE N — OK]` / `[ÉTAPE N — ERREUR: cause]`
+- Correction lecture credentials : `application_password` (pas `password`)
+- Fichiers mis à jour : SKILL.md, workflow.md, checklist.md
+
+**Pré-audit Escapade** :
+- API publique : accessible (HTTP 200)
+- Catégories : 31 catégories confirmées via API (IDs réels notés dans config)
+- Tags : 18 tags fréquents confirmés
+- Credentials : BLOQUÉ (HTTP 401) — application password non accepté
+- Author ID : inconnu (config avait 13, invalide — posts récents utilisent ID 34 humain)
+
+### Blockers ouverts (Nils doit agir)
+
+1. **P6 CRITIQUE** : Credentials Escapade invalides — WP Admin > Profil > régénérer application password
+2. **P7 HAUTE** : author_id Escapade inconnu — visible après résolution P6
+
+### Reste à faire
+
+- Nils résout P6 + P7 → relancer pré-audit auth
+- Ne pas lancer /redaction Escapade avant résolution P6
+- MAV : même pré-audit à faire (pas encore commencé)
+
+---
+
 ## 2026-09-12 (tard) — PHASE 3 TEST : Validation pipeline complet ✅ SUCCÈS
 
 **Lancement test Phase 3 — Workflow complet validé bout à bout.**

@@ -11,6 +11,10 @@
 - Génération Électrique & Hybride — Leasing social 2026 : ce que cache l'offre à 100 € (3e édition, 401 M€, 50 000 véhicules, 20 modèles contre 27, loyers 94-199 €, conditions de RFR et non-cumul)
 - Escapade Magazine — Angsana Corfu Resort & Spa : l'art de ralentir sur les hauteurs de Corfou (portrait destination + hôtel, angle arrière-saison, spa Banyan Tree, 37 villas, 4 restaurants, rooftop Vertigo, activités terroir ; source = dossier de presse MCA)
 
+## 2026-09-14
+- Maisons à Vivre — Couleurs d'automne 2026 pour intérieur urbain : lesquelles adopter et à quel coût (terracotta, vert sauge profond, brun tabac ; budget 25-250 € ; DIY peinture ; ID WP 20339, brouillon INCOMPLET image manquante)
+- Escapade Magazine — Automne 2026 en Europe : les destinations qui méritent un détour (Porto octobre + Trieste bora ; test workflow /redaction ; ID WP 12114, brouillon INCOMPLET image manquante)
+
 ## 2026-09-11
 - Escapade Magazine — Cap-Vert : le secret le mieux gardé de l'Atlantique (dix îles, Santo Antão, Fogo, Cidade Velha UNESCO, 6h de Paris ; source = N°20 pages 14-21, mode archive print ; ID WP 12053, brouillon ✅)
 

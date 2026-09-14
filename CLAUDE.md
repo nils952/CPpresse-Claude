@@ -1,36 +1,131 @@
-# Projet Nils
+# Projet Nils — CP PRESSE
 
-Espace de travail centralisé de **Nils Martin**. Compte Claude partagé avec toute l'entreprise (CPpresse) : ce dossier sert à regrouper au même endroit le travail de Nils, séparé de celui des collègues.
+Espace de travail centralisé de **Nils Martin**.  
+Assistant éditorial autonome pour le groupe CP PRESSE.
 
-## Qui est Nils
-- Nils Martin, en alternance / lié à la rédaction CPpresse (marketing, rédaction d'articles web et print).
-- Email du compte : comptacppresse@gmail.com
-- Langue de travail : français.
+---
 
-## Comment travailler avec moi (Claude)
-- Quand j'ouvre Claude Code dans ce dossier, c'est le contexte de Nils.
-- Nils peut aussi taper la commande `/nils` depuis n'importe quel dossier : elle recharge cette fiche + `JOURNAL.md` et bascule la session ici (définie dans `~/.claude/commands/nils.md`).
-- Tenir à jour `JOURNAL.md` : à chaque session, ajouter en haut une entrée datée avec ce qui a été fait / décidé / ce qui reste à faire.
-- Ranger les fichiers de travail (brouillons, notes, docs) dans ce dossier ou des sous-dossiers thématiques.
-- Au début d'une session, lire `JOURNAL.md` pour reprendre le fil.
+## Démarrage rapide
 
-## Comment me parler (style)
-- Direct et efficace, sans blabla inutile.
-- Pose des questions de clarification avant d'agir si le contexte n'est pas clair, plutôt que de deviner.
-- Honnête même quand ce n'est pas agréable à entendre ; pas de flagornerie.
-- Pour les décisions importantes, présente le pour/contre plutôt que de trancher à ma place.
-- Adapte le niveau de détail à la complexité de la demande.
-- Pas de tirets longs (em dashes) dans les réponses.
+**1. Lire le cœur du système**
+```
+CP-PRESSE-AI/00_CORE/AGENT_CORE_CP_PRESSE.md
+```
+
+**2. Lancer une commande**
+```
+/redaction GEH "Sujet"
+/veille Escapade
+/status
+```
+
+**3. Consulter l'architecture**
+```
+CP-PRESSE-AI/README.md
+```
+
+---
+
+## Qui suis-je (Nils)
+
+- Alternance / rédaction CP Presse (marketing, articles web/print)
+- Email : nils@cppresse.fr
+- Compte partagé : comptacppresse@gmail.com
+- Langue : français
+
+---
+
+## Comment travailler
+
+- **Architecture principale** : `CP-PRESSE-AI/` (transférable, autonome)
+- **Contexte session** : `JOURNAL.md` (à jour après chaque session)
+- **Style** : direct, efficace, honnête. Pas de tirets longs (—).
+
+---
 
 ## Structure
-- `CLAUDE.md` — ce fichier (contexte permanent).
-- `JOURNAL.md` — journal de travail, entrée la plus récente en haut. Toujours lire l'entrée "FIN DE SESSION" la plus récente en premier : elle récapitule l'état du projet et ce qui reste en attente.
 
-## Projet assistant rédaction (CP Presse)
-- Depuis le 10/09/2026 : **Charte V8** = document unique de référence (remplace la V7 et fusionne les deux anciennes routines). Elle vit sur Google Drive (`00-Pilotage`), pas ici. Toujours la chercher par titre (en excluant `[PÉRIMÉ`/`[REMPLACÉE`/`[OBSOLÈTE`/`[FUSIONNÉ`), jamais par ID figé.
-- 4 documents obligatoires à charger avant toute rédaction (ordre imposé par la charte) : (1) Charte V8, (2) fiche Voix éditoriale du site, (3) table de catégories du site, (4) **Journal d'exécution — CP Presse** (nouveau, `00-Pilotage`, obligatoire §18). Si un des quatre manque, s'arrêter et signaler — ne jamais deviner.
-- Skill `/redaction [site] [sujet]` (`.claude/skills/redaction/SKILL.md`) : charge les 4 documents depuis Drive, écrit l'article, poste le brouillon sur WordPress, puis inscrit une ligne au journal d'exécution (sans ça l'article compte comme non produit).
-- Sites pilotes actifs : GEH, Escapade, Maisons à Vivre (+ MAV Campagne, même WordPress, voix différente). Enduro Magazine, MX2K, Trail Adventure restent hors automatisation (publication manuelle uniquement).
-- Identifiants WordPress (mots de passe d'application) stockés localement dans `.claude/wp-credentials-{site}.local.json`, jamais à partager ni committer.
-- **Alerte sécurité (Charte V8 §19, à traiter par Nils)** : le fichier `Articles Nils.xlsx` sur Drive partagé contient un onglet MDP avec des mots de passe d'application WordPress en clair. La charte demande de les révoquer (pas juste déplacer) depuis WordPress et de les régénérer dans un gestionnaire de mots de passe.
-- Archives photos/PDF du groupe : lien de partage IONOS HiDrive Next, accès déjà autorisé en permanence (voir `memory/ionos-hidrive-standing-access.md`).
+| Dossier | Contenu |
+|---|---|
+| `CP-PRESSE-AI/00_CORE/` | Constitution de l'agent (charge en 1er) |
+| `CP-PRESSE-AI/01_CONFIG/` | Config des sites (JSON) |
+| `CP-PRESSE-AI/02_RULES/` | Référence aux règles (liens Drive) |
+| `CP-PRESSE-AI/03_VOIX/` | Référence aux voix (liens Drive) |
+| `CP-PRESSE-AI/04_COMMANDES/` | Les 7 skills |
+| `CP-PRESSE-AI/05_WORKFLOWS/` | Processus (création, validation, pub) |
+| `CP-PRESSE-AI/06_ARCHIVES/` | Anciennes versions (jamais charger) |
+| `CP-PRESSE-AI/07_LOGS/` | Journalisation (liens Drive) |
+
+---
+
+## Commandes principales
+
+- **`/redaction [site] [sujet]`** — Créer un article complet
+- **`/veille [site]`** — Trouver des sujets
+- **`/brouillons [site]`** — Analyser les brouillons WordPress
+- **`/seo [site] [ID]`** — Optimiser Yoast
+- **`/audit [site]`** — Santé générale du site
+- **`/status`** — État du projet
+- **`/install-site [site]`** — Onboarder un site
+
+Détail complet : voir `CP-PRESSE-AI/04_COMMANDES/README.md`
+
+---
+
+## Sites actifs (pilotes)
+
+- **GEH** (electriquemag.fr) — auto/électrique
+- **Escapade** (escapade-mag.fr) — voyages
+- **MAV** (maisonsavivre-mag.fr) — déco urbaine
+
+Configuration : `CP-PRESSE-AI/01_CONFIG/sites/`
+
+---
+
+## Règles fondamentales
+
+1. **Ne jamais inventer** — Charte V8 + Voix + sources réelles seulement
+2. **Charge minimal** — Charger uniquement ce qui est nécessaire
+3. **Statut brouillon** — Jamais publier directement (sauf demande explicite)
+4. **Indépendance** — Le système fonctionne sans Claude, Drive, ou plateforme externe
+
+---
+
+## Après chaque session
+
+Mettre à jour `JOURNAL.md` :
+
+- Date
+- Ce qui a été fait
+- Décisions/blocages
+- Reste à faire
+
+Première chose à lire en session suivante.
+
+---
+
+## Chargement des documents
+
+**Au démarrage** : AGENT_CORE uniquement.
+
+**Pour une rédaction** : ajouter
+- Charte V8 (Drive)
+- Voix [site] (Drive)
+- Contexte site (JSON local)
+- Catégories (API WordPress)
+
+**Ne jamais charger** : autres sites, archives, anciennes versions.
+
+---
+
+## Sécurité
+
+- Credentials WordPress : **jamais** dans Git, ni dans ce fichier
+- Stockage : `.claude/wp-credentials-{site}.local.json` (racine projet, jamais `~/.claude/` — voir `CP-PRESSE-AI/01_CONFIG/CREDENTIALS_RULES.md`)
+- Pas de template avec `xxxx` — trop tentant
+
+---
+
+**Version** : 1.0  
+**Dernière mise à jour** : 2026-09-12  
+**Système** : CP-PRESSE-AI v1.0

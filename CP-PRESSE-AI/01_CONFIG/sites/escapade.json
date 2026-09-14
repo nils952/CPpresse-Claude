@@ -1,0 +1,99 @@
+{
+  "shortname": "escapade",
+  "display_name": "Escapade Magazine",
+  "site_url": "escapade-mag.fr",
+  "wordpress_url": "https://escapade-mag.fr",
+  "wordpress_api": "https://escapade-mag.fr/wp-json/wp/v2",
+
+  "author_id": 39,
+  "author_name": "claude-editorial",
+  "account_email": "nils+claude@cppresse.fr",
+
+  "language": "fr",
+  "timezone": "Europe/Paris",
+
+  "theme": "Zeen",
+  "theme_version": "5.2",
+  "zeen_hero_design_default": 21,
+  "_zeen_note": "ID 21 non vérifié visuellement. À valider après premier brouillon.",
+
+  "credentials_path": ".claude/wp-credentials-escapade.local.json",
+  "credentials_managed_externally": true,
+
+  "local_docs": {
+    "voice": "CP-PRESSE-AI/03_VOIX/ESCAPADE.md",
+    "rules": "CP-PRESSE-AI/02_RULES/CHARTE_V8.md"
+  },
+
+  "categories_confirmed": {
+    "_source": "GET /wp-json/wp/v2/categories — confirmé 2026-09-13",
+    "_total": 31,
+    "racines": {
+      "1": "Non classé",
+      "33": "Destinations",
+      "37": "Reportages",
+      "59": "Archives",
+      "70": "Culture",
+      "93": "Actualités",
+      "112": "Bonnes Adresses",
+      "118": "Shopping",
+      "123": "Récits de voyage",
+      "124": "Thèmes"
+    },
+    "sous_categories": {
+      "28": "France (parent: 33/Destinations)",
+      "65": "Europe (parent: 33/Destinations)",
+      "990": "Monde (parent: 33/Destinations)",
+      "405": "Focus (parent: 37/Reportages)",
+      "991": "Interview (parent: 37/Reportages)",
+      "58": "Visites (parent: 70/Culture)",
+      "85": "Expositions (parent: 70/Culture)",
+      "87": "Musées (parent: 70/Culture)",
+      "156": "Spectacles et festivals (parent: 70/Culture)",
+      "42": "Restaurants (parent: 112/Bonnes Adresses)",
+      "68": "Hôtels (parent: 112/Bonnes Adresses)",
+      "113": "Maisons d'hôtes (parent: 112/Bonnes Adresses)",
+      "217": "Spas (parent: 112/Bonnes Adresses)",
+      "119": "Livres (parent: 118/Shopping)",
+      "144": "Accessoires (parent: 118/Shopping)",
+      "31": "Tendances (parent: 124/Thèmes)",
+      "34": "Idées week-end (parent: 124/Thèmes)",
+      "39": "Gastronomie (parent: 124/Thèmes)",
+      "49": "Bien être (parent: 124/Thèmes)",
+      "78": "Tourisme durable (parent: 124/Thèmes)",
+      "84": "Staycation (parent: 124/Thèmes)"
+    },
+    "_default_pour_articles": "93 (Actualités) ou 33 (Destinations) selon le sujet"
+  },
+
+  "tags_confirmed": {
+    "_source": "GET /wp-json/wp/v2/tags — confirmé 2026-09-13 (top par fréquence)",
+    "970": "A la Une",
+    "82": "Paris",
+    "27": "France",
+    "38": "Gastronomie",
+    "60": "hotel",
+    "74": "voyage",
+    "41": "restaurant",
+    "64": "europe",
+    "272": "Bretagne",
+    "153": "nature",
+    "79": "tourisme durable",
+    "81": "bonnes adresses",
+    "413": "Hôtels",
+    "261": "spa",
+    "238": "italie",
+    "46": "amerique",
+    "95": "Asie",
+    "35": "maroc"
+  },
+
+  "categories": {
+    "api_endpoint": "https://escapade-mag.fr/wp-json/wp/v2/categories"
+  },
+
+  "note": "Magazine voyages — ton narratif, destination-first, expérience-first",
+  "created": "2026-09-12",
+  "updated": "2026-09-13",
+  "status": "active"
+}

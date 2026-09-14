@@ -1,0 +1,18 @@
+{
+  "shortname": "sitename",
+  "display_name": "Site Full Name",
+  "site_url": "example-mag.fr",
+  "wordpress_url": "https://example-mag.fr",
+  "author_id": 19,
+  "author_name": "claude-editorial",
+  "account_email": "nils+claude@cppresse.fr",
+  "language": "fr",
+  "timezone": "Europe/Paris",
+  "zeen_hero_design_default": 1,
+  "theme": "Zeen",
+  "theme_version": "5.2",
+  "credentials_path": ".claude/wp-credentials-{shortname}.local.json",
+  "note": "Magazine [type] — [tone]",
+  "created": "YYYY-MM-DD",
+  "status": "active"
+}
