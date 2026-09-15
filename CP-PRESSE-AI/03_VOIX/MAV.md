@@ -26,12 +26,21 @@ Magazine déco urbaine contemporaine, DIY chiffré, design accessible.
 
 ### ✅ À privilégier
 
-- Prix affichés (jamais implicite)
 - Temps + difficulté + coût pour projets DIY
 - Marques réelles (accessibles, pas luxe inaccessible)
 - Détails matière (bois, tissu, finition, durée)
-- Chiffrage explicite ("comptez 2h", "~150€", "facile débutant")
+- Chiffrage explicite ("comptez 2h", "~150€", "facile débutant") — selon type d'article
 - Fonction avant esthétique
+
+### PRIX ET INFORMATIONS COMMERCIALES
+
+- **Article shopping ou sélection de produits** : prix obligatoires lorsqu'ils sont officiellement disponibles.
+- **Guide d'achat ou présentation d'un produit précis** : prix recommandé s'il est vérifiable sur une source officielle.
+- **DIY** : coût estimé, durée et difficulté obligatoires.
+- **Article tendance, inspiration ou actualité** : prix facultatifs. Les ajouter uniquement s'ils améliorent réellement l'information.
+- **Article consacré à une collection haut de gamme ou patrimoniale** : ne pas forcer l'ajout d'un prix s'il détourne l'article de son angle éditorial.
+- **Prix absent ou non vérifiable** : ne jamais l'inventer et ne pas donner d'estimation.
+- Tout prix publié doit être vérifié sur une source officielle actuelle.
 
 **Exemple bon** :
 "Chaise scandinave : bois massif chêne (durée 20 ans), siège lin naturel, pieds épingle. Budget 300-450 € (Hem pour le haut ; Ikea Lisabo pour entrée gamme : 150 €). À chiner en brocante : 50-80 € si bois usé (à restaurer 3h)."
