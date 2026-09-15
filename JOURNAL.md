@@ -2,6 +2,71 @@
 
 > Entrée la plus récente en haut. Format : `## AAAA-MM-JJ — titre court`
 
+## 2026-09-15 — /redaction MAV : Trois tendances déco automne 2026 (ID 20358, brouillon)
+
+### Fait
+- Article MAV comparatif 3 collections : La Redoute Intérieurs AH26, H&M HOME × Kelly Wearstler, Lalique Alizé
+- Brouillon WP ID 20358 — https://maisonsavivre-mag.fr/?p=20358&preview=true
+- Catégorie : Tendance (ID 100) | Auteur : 13 (Nils Martin) | Statut : draft
+- H1 : "Trois tendances déco qui donnent le ton à l'automne 2026" (56 chars)
+- Slug : `tendances-deco-automne-2026` (4 mots)
+- Titre SEO : 60 chars | Métadesc : 151 chars (Charte V8, 150-155)
+- Expression clé : `tendances déco automne 2026` — 2 occurrences naturelles dans le corps
+- 755 mots environ (H2 inclus), 4 sections + chapô 85 mots
+- 4 images uploadées : LRI-1 featured (ID 20354, 1600×1034), LRI-2 (ID 20355), H&M HOME (ID 20356), Lalique (ID 20357)
+- 3 liens internes vérifiés : matériaux naturels (19940), formes organiques (19785), lampe DIY (19545)
+- Règle autonomie ajoutée à SKILL.md (escalade vs. décision seul)
+
+### Corrections apportées après contrôle Nils
+- H1 trop long (70 chars) → corrigé à 56 chars
+- Métadesc trop longue (158 chars) → corrigée à 151 chars (cible Charte V8 : 150-155)
+- Slug 6 mots → réduit à 4 mots
+- Design Zeen 21 incorrect → valeur correcte est 42 (actualité web MAV = `zeen_hero_design_default`) — à fixer manuellement dans l'éditeur WP
+
+### Blocage résiduel
+- `_zeen_hero_design` non exposé en REST (meta privée Zeen) — valeur 42 à saisir manuellement dans l'éditeur WordPress
+
+---
+
+## 2026-09-15 — Refonte SKILL.md /redaction (V1 intégrée)
+
+### Fait
+- Lu et intégré "INSTRUCTIONS CLAUDE — /redaction V1" (Drive) dans SKILL.md
+- Lu Charte V8 complète pour vérification des contradictions
+- SKILL.md réécrit avec : ordre de chargement V1 obligatoire, confirmation message mis à jour, 5 contradictions corrigées, 4 règles nouvelles ajoutées
+- Fichier modifié : `.claude/skills/redaction/SKILL.md`
+
+### Contradictions corrigées
+- Longueur corps : 500-1200 → 700-1100 mots (V8 §7.1)
+- Ordre priorité images : communiqué > Envato > IONOS > IA > banques gratuites (V8 §11)
+- Images minimum : 1 → 1 à la une + 2 corps
+- Liens internes : "minimum 2" → "2 à 4, jamais plus de 5, jamais forcés"
+- Message de confirmation : absent → obligatoire avec "instructions Claude V1" en tête
+
+### Règles nouvelles ajoutées
+- Chargement Drive V1 comme étape 0 (ID Drive inclus)
+- SEO : expression clé naturelle obligatoire, comptage exact de caractères, cohérence H1/titre SEO/méta bloquante
+- Images : URL/aperçu vérifiable obligatoire, déclaration explicite si outil inaccessible
+- Archives print : phrase extraction + lien boutiquecppresse.com exact (bloquant)
+- Contrôle final bloquant : 13 points listés explicitement
+
+## 2026-09-15 — /redaction MAV : Salle à manger pièce maîtresse (ID 20345, brouillon, image manquante)
+## 2026-09-15 — /redaction MAV : Jardinière intérieure DIY bois (ID 20342, brouillon, image manquante)
+
+## 2026-09-14 — /redaction Escapade : Trentino septembre (ID 12119, brouillon, image manquante)
+
+### Fait
+- Article Escapade : "Trentino en septembre : l'Italie alpine avant les couleurs d'automne"
+- Brouillon WP posté : ID 12119 — https://escapade-mag.fr/wp-admin/post.php?post=12119&action=edit
+- Catégories : 93 (Actualités) + 65 (Europe) | Auteur : 39
+- Focuskw : Trentino septembre voyage | 2 liens internes (Comacchio/Ferrare + villages Europe)
+- Pivot Albania (doublon < 6 mois : article du 01/06/2026) vers Trentino
+- Sources vérifiées : vendemmia, arrière-saison -20-40%, festival Uva e dintorni, Amadeus +30%
+
+### Blocage
+- IMAGE MANQUANTE : brouillon incomplet. Chercher sur Unsplash/Pexels "trentino" ou "dolomites autumn" (1600x900px) avant publication.
+- Quelques données à confirmer avant pub : prix trains TrenItalia (trenitalia.com), vols Vérone (comparateurs).
+
 ## 2026-09-14 — Test workflow /redaction Escapade + MAV
 
 [2026-09-14] MAV — "Couleurs d'automne 2026 pour intérieur urbain : lesquelles adopter et à quel coût" — Brouillon ID 20339 — https://maisonsavivre-mag.fr/?p=20339 — INCOMPLET (image manquante)

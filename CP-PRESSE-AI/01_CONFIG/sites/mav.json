@@ -5,9 +5,11 @@
   "wordpress_url": "https://maisonsavivre-mag.fr",
   "wordpress_api": "https://maisonsavivre-mag.fr/wp-json/wp/v2",
 
-  "author_id": 19,
-  "author_name": "claude-editorial",
+  "author_id": 13,
+  "author_name": "Nils Martin",
   "account_email": "nils+claude@cppresse.fr",
+  "posting_account_id": 19,
+  "posting_account_name": "claude-editorial",
 
   "language": "fr",
   "timezone": "Europe/Paris",

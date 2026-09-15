@@ -11,7 +11,14 @@
 - Génération Électrique & Hybride — Leasing social 2026 : ce que cache l'offre à 100 € (3e édition, 401 M€, 50 000 véhicules, 20 modèles contre 27, loyers 94-199 €, conditions de RFR et non-cumul)
 - Escapade Magazine — Angsana Corfu Resort & Spa : l'art de ralentir sur les hauteurs de Corfou (portrait destination + hôtel, angle arrière-saison, spa Banyan Tree, 37 villas, 4 restaurants, rooftop Vertigo, activités terroir ; source = dossier de presse MCA)
 
+## 2026-09-15
+- Maisons à Vivre — La salle à manger : comment en faire la pièce maîtresse de son intérieur (table, chaises, éclairage, palette rentrée 2026 ; inspiré MAV n°62 ; ID WP 20345, brouillon — image manquante)
+- Maisons à Vivre — Jardinière intérieure DIY : fabriquer un bac en bois en une journée (pin raboté, budget 55-75 €, 3h, débutant ; ID WP 20342, brouillon INCOMPLET image manquante)
+
 ## 2026-09-14
+- Escapade Magazine — Trentino en septembre : l'Italie alpine avant les couleurs d'automne (actu voyage tendance, vendemmia, Dolomites, lac de Garde, angle arrière-saison ; ID WP 12119, brouillon INCOMPLET image manquante)
+
+
 - Maisons à Vivre — Couleurs d'automne 2026 pour intérieur urbain : lesquelles adopter et à quel coût (terracotta, vert sauge profond, brun tabac ; budget 25-250 € ; DIY peinture ; ID WP 20339, brouillon INCOMPLET image manquante)
 - Escapade Magazine — Automne 2026 en Europe : les destinations qui méritent un détour (Porto octobre + Trieste bora ; test workflow /redaction ; ID WP 12114, brouillon INCOMPLET image manquante)
 
